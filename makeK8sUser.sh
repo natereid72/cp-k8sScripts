@@ -11,7 +11,6 @@
 kubectl create ns $1
 openssl genrsa -out $1.key 2048
 openssl req -new -key $1.key -out $1.csr -subj "/C=US/ST=none/L=none/O=users/OU=none/CN=$1"
-cat $1.csr | base64 | tr -d "\n"
 export CSR_REQ=$(cat $1.csr | base64 | tr -d "\n")
 cat <<EOF | kubectl apply -f -
 apiVersion: certificates.k8s.io/v1
