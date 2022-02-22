@@ -8,7 +8,8 @@
 #
 # After creaing a user, use kubectx or kubectl config use-context to switch to the new user.
 #
-kubectl create ns $1
+[ $# -eq 0 ] && { echo "Usage: ./makeK8suser.sh [user name] [name space] [cluster name on kubeconfig]"; exit 1; }
+kubectl create ns $2
 openssl genrsa -out $1.key 2048
 openssl req -new -key $1.key -out $1.csr -subj "/C=US/ST=none/L=none/O=users/OU=none/CN=$1"
 export CSR_REQ=$(cat $1.csr | base64 | tr -d "\n")
@@ -31,7 +32,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: read-write
-  namespace: $1
+  namespace: $2
 rules:
 - apiGroups:
   - ""
@@ -54,7 +55,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: namespace-binding
-  namespace: $1
+  namespace: $2
 roleRef:
   kind: Role
   name: read-write
@@ -64,5 +65,5 @@ subjects:
   name: $1
   apiGroup: rbac.authorization.k8s.io
 EOF
-kubectl config set-credentials $1 --client-key=$1.key --client-certificate=$1.crt --embed-certs=true --cluster=$2
-kubectl config set-context $1 --cluster=$2 --user=$1 --namespace=$1
+kubectl config set-credentials $1 --client-key=$1.key --client-certificate=$1.crt --embed-certs=true --cluster=$3
+kubectl config set-context $1 --cluster=$3 --user=$1 --namespace=$2
