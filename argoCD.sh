@@ -8,8 +8,7 @@
 [ $# -eq 0 ] && { echo "Usage: ./argoCD+Gatekeeper.sh [argo admin password]"; exit 1; }
 kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.7/deploy/gatekeeper.yaml
 kubectl create namespace argocd
-sleep 2
-until kubectl get ns | grep -m 1 "argocd"; do : ; done
+until kubectl get ns argocd -o 'jsonpath={..status.phase}' | grep -m 1 "Active" ; do : ; done
 # Use following line for RC version
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.0-rc4/manifests/install.yaml
 # Use following line for released version
