@@ -4,7 +4,7 @@
 
 Usage: ./uxp.sh
 
-Installs UXP (Downstream Upbound version of Crossplanem, with Composition Revision enabled.
+Installs UXP (Downstream Upbound version of Crossplane, with Composition Revision enabled.
 
 ### argoCD.sh
 
