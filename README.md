@@ -1,4 +1,4 @@
-# k8sScripts - Repo of helpful scripts for Crossplane testing
+# cp-k8sScripts - Repo of helpful scripts for Crossplane testing
 
 ### uxp.sh
 
