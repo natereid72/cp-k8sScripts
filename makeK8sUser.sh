@@ -8,7 +8,7 @@
 # This will create an API user, a nsamespace by the same name, a role and rolebinding for that user
 # to have permissions in the namespace only, update your kube config file with the user as a new context.
 #
-# After creaing a user, use kubectx or kubectl config use-context to switch to the new user.
+# After creaing a user, use kubectx or kubectl config use-context to switch between contexts.
 #
 [ $# -eq 0 ] && { echo "Usage: ./makeK8suser.sh [user name] [name space] [cluster name in kubeconfig (e.g. kind-kind)]"; exit 1; }
 kubectl create ns $2
