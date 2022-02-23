@@ -20,6 +20,6 @@ The argoCD applications include a `platofrm` config that (after manual sync) ins
 
 Usage: ./makeK8suser.sh [user name] [namespace] [cluster name in kubeconfig (e.g. kind-kind)]
 
-Creates a kube-apiserver user, grants them rights at namespace level. If namespace doesn't exits, creates namespace. Updated kube config file with context named same as user name.
+Creates a kube-apiserver user, grants them rights at namespace level. If namespace doesn't exits, creates namespace. Updates kube config file with context named same as user name.
 
 
