@@ -2,9 +2,13 @@
 
 ### uxp.sh
 
+Usage: ./uxp.sh
+
 Installs UXP (Downstream Upbound version of Crossplanem, with Composition Revision enabled.
 
 ### argoCD.sh
+
+Usage: ./argoCD.sh [arogCD admin password]
 
 Installs ArgoCD and OPA Gatekeeper into existing cluster. Defines ArgoCD applications based on platform-ref-azure and a Gatekeeper policy for a `dev` namepsace that restricts cluster XRC node size to `small`.
 
