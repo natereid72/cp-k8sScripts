@@ -1,4 +1,4 @@
-# Usage: ./makeK8sUser.sh [username] [cluster name]
+# Usage: ./makeK8suser.sh [user name] [name space] [cluster name in kubeconfig (e.g. kind-kind)]
 #
 # Use `chmod +x ./makeK8sUser.sh` to mark executable.
 #
