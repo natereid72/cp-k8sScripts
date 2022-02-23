@@ -1,5 +1,7 @@
 # cp-k8sScripts - Repo of helpful scripts for Crossplane testing
 
+### Bring your own cluster and use these scripts to test Crossplane. These scripts are tested to work with 'traditional' Kubernetes and KinD clusters.
+
 ### uxp.sh
 
 Usage: ./uxp.sh
