@@ -14,7 +14,7 @@ Usage: ./argoCD.sh [arogCD admin password]
 
 Installs ArgoCD and OPA Gatekeeper into existing cluster. Defines ArgoCD applications based on platform-ref-azure and a Gatekeeper policy for a `dev` namepsace that restricts cluster XRC node size to `small`.
 
-The argoCD applications include a `platofrm` config that (after manual sync) installs an Azure ProviderConfig. That config requires a Kubernetes seceret  per the instructions here [Azure Provider Secret Config](https://github.com/upbound/platform-ref-azure#configure-providers-in-your-platform) (Stopping at `kubectl create secret generic azure-account-creds -n upbound-system --from-file=credentials=./crossplane-azure-provider-key.json`). Future iterations of this repo will inclide other cloud provider options and respective ProviderConfig instructions.
+The argoCD applications include a `platofrm` config that (after manual sync) installs an Azure ProviderConfig. That config requires a Kubernetes seceret  per the instructions here [Azure Provider Secret Config](https://github.com/upbound/platform-ref-azure#configure-providers-in-your-platform) (Stopping at `kubectl create secret generic azure-account-creds -n upbound-system --from-file=credentials=./crossplane-azure-provider-key.json`). Future iterations of this repo will include other cloud provider options and respective ProviderConfig instructions.
 
 ### makeK8sUser.sh
 
