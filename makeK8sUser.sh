@@ -1,4 +1,6 @@
-# Usage: makeK8sUser.sh [username] [cluster name]
+# Usage: ./makeK8sUser.sh [username] [cluster name]
+#
+# Use `chmod +x ./makeK8sUser.sh` to mark executable.
 #
 # Example, if you want to create a user called test1 in your kind cluster called kind-kind,
 # you'd type ./makeK8sUser.sh test1 kind-kind
@@ -8,7 +10,7 @@
 #
 # After creaing a user, use kubectx or kubectl config use-context to switch to the new user.
 #
-[ $# -eq 0 ] && { echo "Usage: ./makeK8suser.sh [user name] [name space] [cluster name on kubeconfig]"; exit 1; }
+[ $# -eq 0 ] && { echo "Usage: ./makeK8suser.sh [user name] [name space] [cluster name in kubeconfig (e.g. kind-kind)]"; exit 1; }
 kubectl create ns $2
 openssl genrsa -out $1.key 2048
 openssl req -new -key $1.key -out $1.csr -subj "/C=US/ST=none/L=none/O=users/OU=none/CN=$1"
@@ -67,3 +69,4 @@ subjects:
 EOF
 kubectl config set-credentials $1 --client-key=$1.key --client-certificate=$1.crt --embed-certs=true --cluster=$3
 kubectl config set-context $1 --cluster=$3 --user=$1 --namespace=$2
+rm $1.crt $1.csr $1.key
