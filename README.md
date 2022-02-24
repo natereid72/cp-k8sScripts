@@ -2,9 +2,9 @@
 
 ### Bring your own cluster and use these scripts to test Crossplane. These scripts are tested on MacOS to work with 'traditional' Kubernetes and KinD clusters.
 
-### all-in-one.sh
+### argo-cp-all-in-one.sh
 
-Usage: ./all-in-one.sh [arogCD admin password]
+Usage: ./argo-cp-all-in-one.sh [arogCD admin password]
 
 Installs argo CD, then installs argo CD apps that install Gatekeepr, Crossplane, and the Crossplane XRDs and Composition for an AKS cluster. Use either this `all-in-one.sh` or the `uxp.sh` and `argoCD.sh`. 
 
