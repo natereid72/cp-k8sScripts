@@ -1,9 +1,8 @@
-# Usage: ./argoCD+Gatekeeper.sh [argo admin password]
+# Usage: ./argo-cp-all-in-one.sh [argo admin password]
 #
-# Use `chmod +x ./makeK8sUser.sh` to mark executable.
+# Use `chmod +x ./argo-cp-all-in-one.sh` to mark executable.
 #
-# Installs ArgoCD and OPA Gatekeeper. Three apps are created in ArgoCD, two for Crossplane and one for Gatekeeper.
-# Install UXP before installing this script.
+# Installs ArgoCD, Crossplane, and OPA Gatekeeper. 
 #
 [ $# -eq 0 ] && { echo "Usage: ./argoCD+Gatekeeper.sh [argo admin password]"; exit 1; }
 kubectl create namespace argocd
@@ -23,8 +22,8 @@ kubectl -n argocd patch secret argocd-secret \
     "admin.passwordMtime": "'$(date +%FT%T%Z)'"}}'
 unset ARGO_NEW_PW
 unset ARGO_ADMIN_PW
-kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-crossplane-uxp
-kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-gatekeeper
+kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-crossplane-uxp.yaml
+kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-gatekeeper.yaml
 kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-aks-cluster.yaml
 kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-aks-platform.yaml
 kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-gatekeeer-pol.yaml
