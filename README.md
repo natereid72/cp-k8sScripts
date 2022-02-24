@@ -6,7 +6,7 @@
 
 Usage: ./argo-cp-all-in-one.sh [arogCD admin password]
 
-Installs argo CD, then appllies argo CD applications to the cluster that install Gatekeeper, Crossplane, and the Crossplane XRDs and Composition for an AKS cluster. Use either this `all-in-one.sh` or the `uxp.sh` and `argoCD.sh`. 
+Installs argo CD, then appllies argo CD applications to the cluster that install Gatekeeper, Crossplane, and the Crossplane XRDs and Composition for an AKS cluster. Use either this `argo-cp-all-in-one.sh` or the `uxp.sh` and `argoCD.sh`. 
 
 ### uxp.sh
 
