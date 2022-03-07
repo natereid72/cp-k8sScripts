@@ -22,9 +22,9 @@ kubectl -n argocd patch secret argocd-secret \
     "admin.passwordMtime": "'$(date +%FT%T%Z)'"}}'
 unset ARGO_NEW_PW
 unset ARGO_ADMIN_PW
-kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-argoapps.yaml
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-crossplane-uxp.yaml
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-gatekeeper.yaml
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-aks-cluster.yaml
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-aks-platform.yaml
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-gatekeeer-pol.yaml
+#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-argoapps.yaml
+kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-crossplane-uxp.yaml
+kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-gatekeeper.yaml
+kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-aks-cluster.yaml
+kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-aks-platform.yaml
+kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-gatekeeer-pol.yaml
