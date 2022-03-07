@@ -23,8 +23,3 @@ kubectl -n argocd patch secret argocd-secret \
 unset ARGO_NEW_PW
 unset ARGO_ADMIN_PW
 kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/main/main.yaml
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-crossplane-uxp.yaml
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-gatekeeper.yaml3
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-aks-cluster.yaml
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-aks-platform.yaml
-#kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/argoapps/argo-app-gatekeeer-pol.yaml
