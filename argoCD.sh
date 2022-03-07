@@ -24,4 +24,3 @@ kubectl -n argocd patch secret argocd-secret \
     "admin.passwordMtime": "'$(date +%FT%T%Z)'"}}'
 unset ARGO_NEW_PW
 unset ARGO_ADMIN_PW
-kubectl apply -f https://raw.githubusercontent.com/natereid72/gitops/main/main/main.yaml
