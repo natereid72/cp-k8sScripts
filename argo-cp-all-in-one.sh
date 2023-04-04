@@ -2,15 +2,11 @@
 #
 # Use `chmod +x ./argo-cp-all-in-one.sh` to mark executable.
 #
-# Installs ArgoCD, Crossplane, and OPA Gatekeeper. 
-#
 [ $# -eq 0 ] && { echo "Usage: ./argoCD+Gatekeeper.sh [argo admin password]"; exit 1; }
 kubectl create namespace argocd
 until kubectl get ns argocd -o 'jsonpath={..status.phase}' | grep -m 1 "Active" ; do : ; done
-# Use following line for RC version
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.0-rc4/manifests/install.yaml
 # Use following line for released version
-#kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 echo "Hang tight, waiting for argoCD server to become ready. When you see the port-forward console open, you can access the argoCD UI at https://localhost:8080 with username admin and the password you provided."
 until kubectl get pods -l app.kubernetes.io/name=argocd-server -n argocd -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}' | grep -m 1 "True"; do : ; done
 osascript -e 'tell app "Terminal" to do script "kubectl port-forward svc/argocd-server -n argocd 8080:443"'
